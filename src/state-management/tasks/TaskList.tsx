@@ -1,4 +1,8 @@
-import useAuth from "./hooks/useAuth";
+import { useContext } from "react";
+import useAuth from "../hooks/useAuth";
+import TasksContext from "./tasksContext";
+
+const useTasks = () => useContext(TasksContext);
 
 const TaskList = () => {
   const { tasks, dispatch } = useTasks();
@@ -39,6 +43,3 @@ const TaskList = () => {
 };
 
 export default TaskList;
-function useTasks(): { tasks: any; dispatch: any } {
-  throw new Error("Function not implemented.");
-}
