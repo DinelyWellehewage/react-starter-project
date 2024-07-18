@@ -7,6 +7,7 @@ import UsersPage from "./UsersPage";
 import UserDetail from "./UserDetail";
 import ErrorPage from "./ErrorPage";
 import LoginPage from "./LoginPage";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -16,13 +17,19 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
+
+      { path: "users/:id", element: <UserDetail /> },
+      { path: "contact", element: <ContactPage /> },
+    ],
+  },
+  {
+    element: <PrivateRoutes />,
+    children: [
       {
         path: "users",
         element: <UsersPage />,
         children: [{ path: ":id", element: <UserDetail /> }],
       },
-      { path: "users/:id", element: <UserDetail /> },
-      { path: "contact", element: <ContactPage /> },
     ],
   },
 ]);
